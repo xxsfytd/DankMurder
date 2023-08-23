@@ -2,39 +2,41 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 local Tab = Window:MakeTab({
-	Name = "Main",
+	Name = "Auto Stuffs",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
-})
-Tab:AddLabel("Oh Yeah 🤑🤑")
-
-local Tab = Window:MakeTab({
-	Name = "Auto",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local Section = Tab:AddSection({
-	Name = "🤑"
 })
 
 Tab:AddToggle({
-	Name = "Auto Coin",
+	Name = "Auto Tp Coin",
 	Default = false,
 	Callback = function(Value)
 		_G.autoCoins = Value
-    while _G.autoCoins and wait() do
+  while _G.autoCoins and wait() do
+-- Assume you have references to the player and the target part
 local player = game.Players.LocalPlayer
-local targetPart = workspace.CoinHolder.DankCoin.Main
-local teleportInterval = 5 -- Teleport interval in seconds
+local targetPart = game.Workspace.TargetPart
 
-while true do
-    if targetPart then
-        local targetCFrame = targetPart.CFrame
-        player.Character:SetPrimaryPartCFrame(targetCFrame)
-    end
-    wait(teleportInterval)
+-- Get the CFrame of the target part
+local targetCFrame = targetPart.CFrame
+
+-- Teleport the player's character to the target CFrame
+player.Character:SetPrimaryPartCFrame(targetCFrame)
 end
+	end    
+})
 
+Tab:AddToggle({
+	Name = "Auto Open Ugc Crate",
+	Default = false,
+	Callback = function(Value)
+		_G.autoUgcCrate = Value
+  while _G.autoUgcCrate and wait() do
+local args = {
+    [1] = "Sapphire Crate"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCrate"):FireServer(unpack(args))
+end
 	end    
 })
