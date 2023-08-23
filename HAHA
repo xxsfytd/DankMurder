@@ -2,7 +2,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local Window = OrionLib:MakeWindow({Name = "Dank Murder 2", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 local Tab = Window:MakeTab({
-	Name = "Auto Stuffs",
+	Name = "Auto Things",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -60,7 +60,8 @@ end
 Tab:AddButton({
 	Name = "Lobby",
 	Callback = function() 
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84, 11, 895)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84, 11, 895)
 end
   	end    
 })
