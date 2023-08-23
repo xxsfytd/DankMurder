@@ -1,1 +1,34 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab:AddLabel("Oh Yeah 🤑🤑")
+
+local Tab = Window:MakeTab({
+	Name = "Auto",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "🤑"
+})
+
+Tab:AddToggle({
+	Name = "Auto Coin",
+	Default = false,
+	Callback = function(Value)
+		_G.autoCoins = Value
+    while _G.autoCoins and wait() do
+local player = game.Players.LocalPlayer 
+local targetPart = workspace.CoinHolder.DankCoin.Main
+
+local targetCFrame = targetPart.CFrame
+player.Character:SetPrimaryPartCFrame(targetCFrame)
+
+	end    
+})
