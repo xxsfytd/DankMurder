@@ -15,7 +15,7 @@ Tab:AddToggle({
   while _G.autoCoins and wait() do
 -- Assume you have references to the player and the target part
 local player = game.Players.LocalPlayer
-local targetPart = game.Workspace.TargetPart
+local targetPart = game.Workspace.CoinHolder.DankCoin.Main
 
 -- Get the CFrame of the target part
 local targetCFrame = targetPart.CFrame
