@@ -50,15 +50,3 @@ end
 local Section = Tab:AddSection({
 	Name = "Teleport"
 })
-
-Tab:AddToggle({
-	Name = "Auto Safe",
-	Default = false,
-	Callback = function(Value)
-		_G.autoSafeZoneBoi
-  while _G.autoSafeZoneBoi and waig() do
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(83, 12, 896)
-end
-	end    
-})
-
