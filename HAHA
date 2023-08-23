@@ -1,5 +1,11 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Dank Murder 2", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+OrionLib:MakeNotification({
+	Name = "💀💀💀💀💀",
+	Content = "Notification From Your Dad",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
 
 local Tab = Window:MakeTab({
 	Name = "Auto Things",
@@ -46,23 +52,12 @@ local Section = Tab:AddSection({
 })
 
 Tab:AddToggle({
-	Name = "Auto Safe Zone",
+	Name = "Auto Safe",
 	Default = false,
 	Callback = function(Value)
-	_G.autoSafeZone = Value
- while _G.autoSafeZone and wait() do
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25327, 161, -42)
-end
+		_G.autoSafeZoneBoi
+  while _G.autoSafeZoneBoi and waig() do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(83, 12, 896)
 	end    
-})
-
-Tab:AddButton({
-	Name = "Lobby",
-	Callback = function() 
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84, 11, 895)
-end
-  	end    
 })
 
