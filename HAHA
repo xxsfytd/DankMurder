@@ -50,3 +50,18 @@ end
 local Section = Tab:AddSection({
 	Name = "Teleport"
 })
+Tab:AddToggle({
+	Name = "Auto Safe Zone",
+	Default = false,
+	Callback = function(Value)
+		_G.autoSafe = Value
+  while _G.autoSafe and wait() do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84, 11, 895)
+	end    
+})
+
+
+
+
+
+OrionLib:Init()
