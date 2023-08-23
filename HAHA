@@ -57,6 +57,7 @@ Tab:AddToggle({
 		_G.autoSafe = Value
   while _G.autoSafe and wait() do
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84, 11, 895)
+end
 	end    
 })
 
