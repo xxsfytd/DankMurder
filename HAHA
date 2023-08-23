@@ -24,11 +24,17 @@ Tab:AddToggle({
 	Callback = function(Value)
 		_G.autoCoins = Value
     while _G.autoCoins and wait() do
-local player = game.Players.LocalPlayer 
+local player = game.Players.LocalPlayer
 local targetPart = workspace.CoinHolder.DankCoin.Main
+local teleportInterval = 5 -- Teleport interval in seconds
 
-local targetCFrame = targetPart.CFrame
-player.Character:SetPrimaryPartCFrame(targetCFrame)
+while true do
+    if targetPart then
+        local targetCFrame = targetPart.CFrame
+        player.Character:SetPrimaryPartCFrame(targetCFrame)
+    end
+    wait(teleportInterval)
+end
 
 	end    
 })
