@@ -49,20 +49,9 @@ Tab:AddToggle({
 	Name = "Auto Safe Zone",
 	Default = false,
 	Callback = function(Value)
-	_G.autoSafeZone = Value
- while _G.autoSafeZone and wait() do
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(25327, 161, -42)
-end
+		_G.autoSafe
+  while _G.autoSafe and wait() do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(83, 12, 896)
 	end    
-})
-
-Tab:AddButton({
-	Name = "Lobby",
-	Callback = function() 
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(84, 11, 895)
-end
-  	end    
 })
 
