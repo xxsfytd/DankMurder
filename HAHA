@@ -8,20 +8,46 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddToggle({
-	Name = "Auto Tp Coin",
+	Name = "Auto Coin",
 	Default = false,
 	Callback = function(Value)
-		_G.autoCoins = Value
-  while _G.autoCoins and wait() do
--- Assume you have references to the player and the target part
-local player = game.Players.LocalPlayer
-local targetPart = game.Workspace.CoinHolder.DankCoin.Main
+		_G.autoCoinGet = Value
+		while _G.autoCoinGet and wait() do
+		local player = game.Players.LocalPlayer
+local targetPartName = "Main"
 
--- Get the CFrame of the target part
-local targetCFrame = targetPart.CFrame
+local function TeleportToTarget()
+    local targetPart = nil
+    local targetConnection
+    
+    -- Function to handle when the target part is found
+    local function OnTargetFound()
+        targetConnection:Disconnect()  -- Disconnect the connection
+        
+        local targetCFrame = targetPart.CFrame
+        player.Character:SetPrimaryPartCFrame(targetCFrame)
+    end
+    
+    -- Function to check if the target part exists
+    local function CheckTargetPart()
+        local coinHolder = game.Workspace:FindFirstChild("CoinHolder")
+        if coinHolder then
+            local dankCoin = coinHolder:FindFirstChild("DankCoin")
+            if dankCoin then
+                targetPart = dankCoin:FindFirstChild(targetPartName)
+                if targetPart then
+                    OnTargetFound()  -- Call the function to handle target found
+                end
+            end
+        end
+    end
+    
+    -- Connect the function to check for the target part
+    targetConnection = game:GetService("RunService").Heartbeat:Connect(CheckTargetPart)
+end
 
--- Teleport the player's character to the target CFrame
-player.Character:SetPrimaryPartCFrame(targetCFrame)
+-- Call the function to initiate the teleportation process
+TeleportToTarget()
 end
 	end    
 })
